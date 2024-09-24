@@ -16,7 +16,9 @@ function NavBar() {
   return (
     <>
       <Nav>
-        <h2>Mascotienda</h2>
+        <TiendaMascota>
+        <h2>    Mascotienda  </h2>
+        </TiendaMascota>
         <MenuButton isOpen={isOpen} toggleMenu={toggleMenu} />
         <CartWidget>
           🛒 <span>{cartCount}</span>
@@ -33,6 +35,21 @@ function NavBar() {
 }
 
 export default NavBar;
+
+const TiendaMascota = styled.div`
+  padding: 10px; 
+  text-align: center; 
+  margin-bottom: 1px; 
+
+  h2 {
+    font-size: 20px; /* tamaño de fuente */
+    font-weight: bold; /* grosor de fuente */
+    color: #333; /* color del texto */
+    text-transform: uppercase; /* mayúsculas */
+    letter-spacing: 2px; /* espaciado entre letras */
+    margin-bottom: 5px; /* margen inferior */
+  }
+`
 
 const Nav = styled.div`
   width: 100vw;

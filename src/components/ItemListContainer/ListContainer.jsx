@@ -17,7 +17,7 @@ function ItemListContainer( items = []) {
             />
           ))
         ) : (
-          <p>¡Bienvenidos!</p>
+          <p> </p>
         )}
       </List>
     </Container>

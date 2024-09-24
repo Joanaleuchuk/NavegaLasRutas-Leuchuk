@@ -1,15 +1,40 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
+import logo from './imagen/logo.jpeg'; 
+import styled from 'styled-components';
 
+const Banner = () => {
+    return (
+        <ContenedorBanner>
+      <BannerMascotienda>
+        <BannerImage src={logo} alt="Logo" />
+      </BannerMascotienda>
+      </ContenedorBanner>
+    );
+  }
+  
+  export default Banner;
 
-const Banner= () => {
-    return <div className="banner">
-        <div className="banner-container">
-            <h1>La Mascotienda</h1>
-            <p>El lugar de tu mascota</p>
-            
-        </div>
-        </div>
-    ;
-}
-export default Banner;
+const BannerMascotienda = styled.div`
+  position: relative;
+  width: 80vw;
+  height: 50vh;
+  overflow: hidden;
+`;
+
+const BannerImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+`;
+
+const ContenedorBanner = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+`;

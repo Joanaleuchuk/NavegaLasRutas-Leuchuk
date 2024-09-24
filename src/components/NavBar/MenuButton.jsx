@@ -20,6 +20,10 @@ export default MenuButton;
 
 const Menu = styled.div`
   cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   .nav-icon-3 {
     width: 30px;
     height: 24px;
