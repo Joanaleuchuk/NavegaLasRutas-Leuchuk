@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import logo from './imagen/logo.jpeg'; 
+import logo from './imagen/mascotasweb.jpg'; 
 import styled from 'styled-components';
 
 const Banner = () => {
     return (
         <ContenedorBanner>
+          <h1>Petshop</h1>
       <BannerMascotienda>
         <BannerImage src={logo} alt="Logo" />
       </BannerMascotienda>

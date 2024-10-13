@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Alimento balanceado Puppy",
+    "description": "Royal Canin/10k",
+    "price": 83550,
+    "image": "/public/Imgproducts/product 1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Alimento balanceado Adulto raza pequeña",
+    "description": "Royal Canin/3k",
+    "price": 58000,
+    "image": "/public/Imgproducts/product 2.png"
+  },
+  {
+    "id": 3,
+    "name": "Alimento balanceado adulto raza grande",
+    "description": "Royal Canin/3k",
+    "price": 65000,
+    "image": "/public/Imgproducts/product 3.jpg"
+  }
+]

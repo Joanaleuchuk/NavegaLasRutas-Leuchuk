@@ -1,106 +1,107 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import MenuButton from './MenuButton'; 
+import MenuButton from './MenuButton';
+import { Link } from "react-router-dom";
+import CartWidget from '../Cart/CartWidget.jsx';
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  // eslint-disable-next-line no-unused-vars
-  const [cartCount, setCartCount] = useState(0); 
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => { setIsOpen(!isOpen); };
 
   return (
     <>
       <Nav>
+
+      <MenuButton isOpen={isOpen} toggleMenu={toggleMenu} />
+
+       
         <TiendaMascota>
-        <h2>    Mascotienda  </h2>
+          <h2>La Masconeta</h2>
         </TiendaMascota>
-        <MenuButton isOpen={isOpen} toggleMenu={toggleMenu} />
-        <CartWidget>
-          🛒 <span>{cartCount}</span>
-        </CartWidget> {}
+
+       
+        <Cart>
+          <Link className="cart" to="/cart">
+            <span><CartWidget /></span>
+          </Link>
+        </Cart>
       </Nav>
-      <Container isOpen={isOpen}>
+
+      
+      <SlideMenu isOpen={isOpen}>
         <a href="/">Home</a>
-        <a href="/">Shop</a>
+        <a href="/shop">Shop</a>
         <a href="/">Contacto</a>
         <a href="/">Blog</a>
-      </Container>
+      </SlideMenu>
     </>
   );
 }
 
 export default NavBar;
 
-const TiendaMascota = styled.div`
-  padding: 10px; 
-  text-align: center; 
-  margin-bottom: 1px; 
-
-  h2 {
-    font-size: 20px; /* tamaño de fuente */
-    font-weight: bold; /* grosor de fuente */
-    color: #333; /* color del texto */
-    text-transform: uppercase; /* mayúsculas */
-    letter-spacing: 2px; /* espaciado entre letras */
-    margin-bottom: 5px; /* margen inferior */
-  }
-`
-
-const Nav = styled.div`
+const Nav = styled.nav`
   width: 100vw;
-  padding: 0.4rem;
+  height: 80px;
   background-color: #333;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+`;
+
+const TiendaMascota = styled.div`
+  text-align: center;
+  flex: 1;
 
   h2 {
     color: white;
-    margin-left: 1rem;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+
   }
 `;
 
-const CartWidget = styled.div`
-  color: white;
-  font-size: 1.5rem;
-  margin-right: 1rem;
+const Cart = styled.div`
   display: flex;
   align-items: center;
-  
-  span {
-    background-color: red;
-    border-radius: 50%;
-    padding: 0.2rem 0.5rem;
-    font-size: 1rem;
-    margin-left: 0.5rem;
+  margin-right: 3rem;
+
+  .cart span {
+    background-color: grey;
+    border-radius: 25%;
+    padding: 0.1rem 0.3rem;
     color: white;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
-const Container = styled.div`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')}; 
+const SlideMenu = styled.div`
   background-color: #333;
-  position: absolute;
-  top: 3.5rem;
-  left: 0;
-  width: 100vw;
-  padding: 1rem;
+  width: ${({ isOpen }) => (isOpen ? '25%' : '0')}; 
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0; 
+  transition: width 0.3s ease;
+  overflow: hidden;
+  z-index: 999;
 
   a {
+    display: block;
     color: white;
     text-decoration: none;
-    margin-right: 1rem;
-    display: block;
-    padding: 0.5rem 0;
+    padding: 1rem;
+    font-size: 1.2rem;
   }
 `;

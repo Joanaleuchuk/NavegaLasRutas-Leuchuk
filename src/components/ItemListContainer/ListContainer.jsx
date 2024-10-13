@@ -1,23 +1,27 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import Item from './Item';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import ItemContainer from './Item';
 
-function ItemListContainer( items = []) {
+function ItemListContainer() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('/Product/Product.json')
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error('Error fetching products:', error));
+  }, []);
+
   return (
     <Container>
       <List>
-        {items.length > 0 ? (
-          items.map((item) => (
-            <Item 
-              key={item.id} 
-              name={item.name} 
-              price={item.price} 
-              category={item.category} 
-            />
+        {products.length > 0 ? (
+          products.map((item) => (
+            <ItemContainer key={item.id} item={item} /> 
           ))
         ) : (
-          <p> </p>
+          <p>Cargando productos...</p>
         )}
       </List>
     </Container>
@@ -27,12 +31,13 @@ function ItemListContainer( items = []) {
 export default ItemListContainer;
 
 const Container = styled.div`
-  padding: 1rem;
+  padding: 2rem;
 `;
 
 const List = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   padding: 1rem;
+  align-items: start;
 `;

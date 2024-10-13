@@ -19,64 +19,47 @@ function MenuButton({ isOpen, toggleMenu }) {
 export default MenuButton;
 
 const Menu = styled.div`
-  cursor: pointer;
+cursor: pointer;
+margin-right: auto;  /* Botón alineado a la izquierda */
+display: flex;
+align-items: center;
+
+.nav-icon-3 {
+  width: 30px;
+  height: 24px;
+  position: relative;
+  margin: 10px;
+}
+
+.nav-icon-3 span {
+  display: block;
   position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  .nav-icon-3 {
-    width: 30px;
-    height: 24px;
-    position: relative;
-    margin: 10px auto;
-  }
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 9px;
+  transition: 0.25s ease-in-out;
+}
 
-  .nav-icon-3 span {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background: white;
-    border-radius: 9px;
-    opacity: 1;
-    left: 0;
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: 0.25s ease-in-out;
-    transition: 0.25s ease-in-out;
-  }
+.nav-icon-3 span:nth-child(1) { top: 0; }
+.nav-icon-3 span:nth-child(2),
+.nav-icon-3 span:nth-child(3) { top: 9px; }
+.nav-icon-3 span:nth-child(4) { top: 18px; }
 
-  .nav-icon-3 span:nth-child(1) {
-    top: 0px;
-  }
-
-  .nav-icon-3 span:nth-child(2),
-  .nav-icon-3 span:nth-child(3) {
-    top: 9px;
-  }
-
-  .nav-icon-3 span:nth-child(4) {
-    top: 18px;
-  }
-
-  .nav-icon-3.open span:nth-child(1) {
-    top: 9px;
-    width: 0%;
-    left: 50%;
-  }
-
-  .nav-icon-3.open span:nth-child(2) {
-    transform: rotate(45deg);
-  }
-
-  .nav-icon-3.open span:nth-child(3) {
-    transform: rotate(-45deg);
-  }
-
-  .nav-icon-3.open span:nth-child(4) {
-    top: 9px;
-    width: 0%;
-    left: 50%;
-  }
+.nav-icon-3.open span:nth-child(1) {
+  top: 9px;
+  width: 0;
+  left: 50%;
+}
+.nav-icon-3.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+.nav-icon-3.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+.nav-icon-3.open span:nth-child(4) {
+  top: 9px;
+  width: 0;
+  left: 50%;
+}
 `;
-
